@@ -9,7 +9,7 @@ public:
 	void SetDirection(int i) { direction = i; }
 	int GetDirection() { return direction; }
 private:
-	int direction = 0;
+	int direction = 2;
 };
 
 

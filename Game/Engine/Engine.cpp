@@ -1,11 +1,11 @@
 #include "Engine.h"
 
 int test::testFunction() {
-	return 0;
+	return 3;
 }
 
 void test::MainWindow() {
-	MessageBoxW(NULL, L"Hier Kot einfügen", L"Legga", MB_APPLMODAL);
+	//MessageBoxW(NULL, L"Hier Kot einfügen", L"Legga", MB_APPLMODAL);
 
 	Engine* testEngine;
 	bool result;
