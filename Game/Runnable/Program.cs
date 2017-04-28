@@ -1,6 +1,5 @@
-﻿using System;
-
-using EngineWrapper;
+﻿using EngineWrapper;
+using System;
 using GameLogik;
 using System.Windows.Forms;
 using System.Threading;
@@ -36,7 +35,7 @@ namespace Runnable
 
 
 
-            Console.WriteLine("EngineWrapper Test : \t" + nat.TestWrapper());
+            //Console.WriteLine("EngineWrapper Test : \t" + nat.TestWrapper());
 
             Console.WriteLine("C# Library Test : \t" + (GameLogik.TestLogik()));
 

@@ -1,9 +1,6 @@
 #include "Engine.h"
 
 int test::testFunction() {
-
-
-
 	return 0;
 }
 

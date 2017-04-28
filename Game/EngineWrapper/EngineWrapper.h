@@ -1,13 +1,23 @@
 // EngineWrapper.h
 
+#include "../Engine/Engine.h"
+
 #pragma once
 
 using namespace System;
 
 namespace EngineWrapper {
 
-	public ref class Class1
+	public ref class EngineWrapperClass
 	{
-		// TODO: Add your methods for this class here.
+	public :
+		EngineWrapperClass();
+	
+		void MainWindow();
+		int GetDirection(); 
+		void SetDirection(int i);
+
+	private:
+		test* NativeClass;
 	};
 }
