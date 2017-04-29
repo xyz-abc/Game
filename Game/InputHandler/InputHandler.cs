@@ -24,58 +24,62 @@ namespace InputHandler
 
         void nextIteration(object state)
         {
-            keys = new byte[256];
-            GetKeyboardState(keys);
+            //keys = new byte[256];
+            //GetKeyboardState(keys);
 
             //if ((keys[(int)Keys.Left] == 1))
             if ((GetKeyState(37) & 0x8000) > 0)
             { 
                 //Console.WriteLine(GetKeyState(37) & 0x8000);
                 eng.deltaCameraRotation(0, -3.0f, 0);
-                Console.WriteLine("ld");
+                
             }
             if ((GetKeyState(38) & 0x8000) > 0)
             {
                 //Console.WriteLine(GetKeyState(37) & 0x8000);
                 eng.deltaCameraRotation(-3.0f, 0, 0);
-                Console.WriteLine("ld");
+                
             }
             if ((GetKeyState(39) & 0x8000) > 0)
             {
                 //Console.WriteLine(GetKeyState(37) & 0x8000);
                 eng.deltaCameraRotation(0, 3.0f, 0);
-                Console.WriteLine("ld");
+                
             }
             if ((GetKeyState(40) & 0x8000) > 0)
             {
                 //Console.WriteLine(GetKeyState(37) & 0x8000);
                 eng.deltaCameraRotation(3.0f, 0, 0);
-                Console.WriteLine("ld");
+                
             }
             if ((GetKeyState(0x57) & 0x8000) > 0) // W
             {
                 //Console.WriteLine(GetKeyState(37) & 0x8000);
                 eng.deltaCameraPosition(0, 0, 0.03f);
-                Console.WriteLine("ld");
+                
             }
             if ((GetKeyState(0x41) & 0x8000) > 0) // A
             {
                 //Console.WriteLine(GetKeyState(37) & 0x8000);
                 eng.deltaCameraPosition(-0.03f, 0, 0);
-                Console.WriteLine("ld");
+                
             }
             if ((GetKeyState(0x53) & 0x8000) > 0) // S
             {
                 //Console.WriteLine(GetKeyState(37) & 0x8000);
                 eng.deltaCameraPosition(0, 0, -0.03f);
-                Console.WriteLine("ld");
+                
             }
             if ((GetKeyState(0x44) & 0x8000) > 0) // D
             {
                 //Console.WriteLine(GetKeyState(37) & 0x8000);
                 eng.deltaCameraPosition(0.03f, 0, 0);
-                Console.WriteLine("ld");
+                
             }
+            if ((GetKeyState(0x45) & 0x8000) > 0) // E
+                eng.deltaCameraPosition(0, -0.03f, 0);
+            if ((GetKeyState(0x51) & 0x8000) > 0)
+                eng.deltaCameraPosition(0, 0.03f, 0);
             //t.Change(1000, Timeout.Infinite);
         }
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]

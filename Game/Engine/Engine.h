@@ -55,7 +55,8 @@ public:
 
 private:
 	bool Frame();
-	void InitializeWindows(int&, int&);
+	//void InitializeWindows(int&, int&);
+	void InitializeWindows(int & screenWidth, int & screenHeight, bool fullscreen);
 	void ShutdownWindows();
 
 

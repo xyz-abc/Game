@@ -1,5 +1,5 @@
 #include "Engine.h"
-#include <iostream>
+
 int test::testFunction() {
 	return 3;
 }
@@ -84,7 +84,7 @@ bool Engine::Initialize()
 	screenHeight = 0;
 
 	// Initialize the windows api.
-	InitializeWindows(screenWidth, screenHeight);
+	InitializeWindows(screenWidth, screenHeight, WINDOWED_SCREEN);
 
 	// Create the input object.  This object will be used to handle reading the keyboard input from the user.
 	m_Input = new InputClass;
@@ -240,7 +240,7 @@ LRESULT CALLBACK Engine::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam, LPA
 }
 
 
-void Engine::InitializeWindows(int& screenWidth, int& screenHeight)
+void Engine::InitializeWindows(int& screenWidth, int& screenHeight, bool fullscreen)
 {
 	WNDCLASSEX wc;
 	DEVMODE dmScreenSettings;
@@ -278,7 +278,7 @@ void Engine::InitializeWindows(int& screenWidth, int& screenHeight)
 	screenHeight = GetSystemMetrics(SM_CYSCREEN);
 
 	// Setup the screen settings depending on whether it is running in full screen or in windowed mode.
-	if (FULL_SCREEN)
+	if (fullscreen)
 	{
 		// If full screen set the screen to maximum size of the users desktop and 32bit.
 		memset(&dmScreenSettings, 0, sizeof(dmScreenSettings));
@@ -297,8 +297,8 @@ void Engine::InitializeWindows(int& screenWidth, int& screenHeight)
 	else
 	{
 		// If windowed then set it to 800x600 resolution.
-		screenWidth = 800;
-		screenHeight = 600;
+		screenWidth = 1280;
+		screenHeight = 720;
 
 		// Place the window in the middle of the screen.
 		posX = (GetSystemMetrics(SM_CXSCREEN) - screenWidth) / 2;
