@@ -14,8 +14,9 @@ namespace EngineWrapper {
 		EngineWrapperClass();
 	
 		void MainWindow();
-		const float* getCameraRotation();
-
+		//const float* getCameraRotation();
+		System::Tuple<float, float, float>^ getCameraRotation();
+		void setCameraRotation(float x, float y, float z);
 	private:
 		test* NativeEngine;
 	};

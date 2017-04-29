@@ -41,15 +41,15 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	}
 
 	// Create the camera object.
-	m_Camera = new CameraClass;
+	/*m_Camera = new CameraClass;
 	if (!m_Camera)
 	{
 		return false;
-	}
+	}*/
 
 	// Set the initial position of the camera.
 	m_Camera->SetPosition(3.0f, 3.0f, -10.0f);
-	m_Camera->SetRotation(10.0f, .0f, .0f);
+	//m_Camera->SetRotation(10.0f, .0f, .0f);
 	// Create the model object.
 	m_Model = new ModelClass;
 	if (!m_Model)

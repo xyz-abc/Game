@@ -8,6 +8,7 @@ namespace Runnable
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
             Startup s = new Startup();
@@ -16,6 +17,7 @@ namespace Runnable
     }
     public class Startup
     {
+        static float z;
         public EngineWrapperClass nat;
         public Random r;
         public Thread MainWindowThread;
@@ -23,6 +25,7 @@ namespace Runnable
         public System.Threading.Timer t;
         public Startup()
         {
+            z = 0;
             r = new Random();
             nat = new EngineWrapperClass();
             MainWindowThread = new Thread(nat.MainWindow);
@@ -44,8 +47,10 @@ namespace Runnable
 
         void Input(object state)
         {
-            
-            //Console.WriteLine(nat.g);
+            z += 1.0f;
+            nat.setCameraRotation(.0f, .0f, z);
+            Console.WriteLine(z);
+            Console.WriteLine(nat.getCameraRotation());
             //Console.WriteLine(nat.GetDirection());
             //nat.SetDirection(r.Next(1, 5));
         }

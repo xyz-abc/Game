@@ -40,7 +40,10 @@ const float* test::GetCameraRotation()
 	return f;
 }
 
-
+void test::SetCameraRotation(float x, float y, float z)
+{
+	testEngine->m_Camera->SetRotation(x, y, z);
+}
 
 Engine::Engine()
 {
