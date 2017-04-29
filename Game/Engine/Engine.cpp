@@ -1,5 +1,5 @@
 #include "Engine.h"
-
+#include <iostream>
 int test::testFunction() {
 	return 3;
 }
@@ -43,6 +43,15 @@ const float* test::GetCameraRotation()
 void test::SetCameraRotation(float x, float y, float z)
 {
 	testEngine->m_Camera->SetRotation(x, y, z);
+}
+
+void test::DeltaCameraRotation(float x, float y, float z)
+{
+	testEngine->m_Camera->DeltaRotation(x, y, z);
+}
+void test::DeltaCameraPosition(float x, float y, float z)
+{
+	testEngine->m_Camera->DeltaPosition(x, y, z);
 }
 
 Engine::Engine()

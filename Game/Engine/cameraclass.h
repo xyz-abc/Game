@@ -12,7 +12,9 @@ public:
 	~CameraClass();
 
 	void SetPosition(float, float, float);
+	void DeltaPosition(float x, float y, float z);
 	void SetRotation(float, float, float);
+	void DeltaRotation(float x, float y, float z);
 
 	XMFLOAT3 GetPosition();
 	XMFLOAT3 GetRotation();

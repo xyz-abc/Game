@@ -10,6 +10,9 @@ public:
 	//void SetDirection(int i) { direction = i; }
 	//int GetDirection() { return direction; }
 	const float* GetCameraRotation();
+
+	void DeltaCameraRotation(float x, float y, float z);
+	void DeltaCameraPosition(float x, float y, float z);
 	void SetCameraRotation(float x, float y, float z);
 private:
 	Engine* testEngine;

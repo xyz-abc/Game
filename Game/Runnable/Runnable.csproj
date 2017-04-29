@@ -66,6 +66,10 @@
       <Project>{bcafbc97-c8ac-4fcb-a763-d962aa0ad0b6}</Project>
       <Name>GameLogik</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InputHandler\InputHandler.csproj">
+      <Project>{C0A0B792-CCAF-48AF-8764-17AEEE58764D}</Project>
+      <Name>InputHandler</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

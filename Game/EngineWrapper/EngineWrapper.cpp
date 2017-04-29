@@ -28,3 +28,13 @@ void EngineWrapper::EngineWrapperClass::setCameraRotation(float x, float y, floa
 {
 	NativeEngine->SetCameraRotation(x, y, z);
 }
+
+void EngineWrapper::EngineWrapperClass::deltaCameraRotation(float x, float y, float z)
+{
+	NativeEngine->DeltaCameraRotation(x, y, z);
+}
+
+void EngineWrapper::EngineWrapperClass::deltaCameraPosition(float x, float y, float z)
+{
+	NativeEngine->DeltaCameraPosition(x, y, z);
+}

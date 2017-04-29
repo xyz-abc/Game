@@ -3,6 +3,7 @@ using System;
 using GameLogik;
 using System.Windows.Forms;
 using System.Threading;
+using InputHandler;
 
 namespace Runnable
 {
@@ -23,6 +24,7 @@ namespace Runnable
         public Thread MainWindowThread;
         public Logik GameLogik;
         public System.Threading.Timer t;
+        public InputHandler.InputHandler ih;
         public Startup()
         {
             z = 0;
@@ -31,6 +33,7 @@ namespace Runnable
             MainWindowThread = new Thread(nat.MainWindow);
             GameLogik = new Logik();
             t = new System.Threading.Timer(Input, null, Timeout.Infinite, Timeout.Infinite);
+            ih = new InputHandler.InputHandler(nat);
         }
 
         public void start()
@@ -47,10 +50,10 @@ namespace Runnable
 
         void Input(object state)
         {
-            z += 1.0f;
-            nat.setCameraRotation(.0f, .0f, z);
-            Console.WriteLine(z);
-            Console.WriteLine(nat.getCameraRotation());
+            //z += 1.0f;
+            //nat.setCameraRotation(.0f, .0f, z);
+            //Console.WriteLine(z);
+            //Console.WriteLine(nat.getCameraRotation());
             //Console.WriteLine(nat.GetDirection());
             //nat.SetDirection(r.Next(1, 5));
         }
