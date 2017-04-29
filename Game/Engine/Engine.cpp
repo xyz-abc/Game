@@ -5,9 +5,8 @@ int test::testFunction() {
 }
 
 void test::MainWindow() {
-	//MessageBoxW(NULL, L"Hier Kot einfügen", L"Legga", MB_APPLMODAL);
 
-	Engine* testEngine;
+	
 	bool result;
 
 	// Create the system object.
@@ -31,12 +30,23 @@ void test::MainWindow() {
 
 }
 
+const float* test::GetCameraRotation()
+{
+	auto a = testEngine->m_Camera->GetRotation();
+	float* f = new float[3];
+	f[0] = a.x;
+	f[1] = a.y;
+	f[2] = a.z;
+	return f;
+}
+
 
 
 Engine::Engine()
 {
 	m_Input = 0;
 	m_Graphics = 0;
+	m_Camera = 0;
 }
 
 
@@ -74,19 +84,27 @@ bool Engine::Initialize()
 	// Initialize the input object.
 	m_Input->Initialize();
 
-	// Create the graphics object.  This object will handle rendering all the graphics for this application.
-	m_Graphics = new GraphicsClass;
-	if (!m_Graphics)
+	m_Camera = new CameraClass;
+	if (!m_Camera)
 	{
 		return false;
 	}
 
+	// Create the graphics object.  This object will handle rendering all the graphics for this application.
+	m_Graphics = new GraphicsClass(m_Camera);
+	if (!m_Graphics)
+	{
+		return false;
+	}
+	
 	// Initialize the graphics object.
 	result = m_Graphics->Initialize(screenWidth, screenHeight, m_hwnd);
 	if (!result)
 	{
 		return false;
 	}
+	
+
 
 	return true;
 }
@@ -155,6 +173,8 @@ void Engine::Run()
 
 	return;
 }
+
+
 
 
 bool Engine::Frame()

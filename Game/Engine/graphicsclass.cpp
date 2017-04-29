@@ -1,10 +1,10 @@
 #include "graphicsclass.h"
 
 
-GraphicsClass::GraphicsClass()
+GraphicsClass::GraphicsClass(CameraClass* cc)
 {
 	m_Direct3D = 0;
-	m_Camera = 0;
+	m_Camera = cc;
 	m_Model = 0;
 	m_ColorShader = 0;
 }
@@ -33,7 +33,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	}
 
 	// Initialize the Direct3D object.
-	result = m_Direct3D->Initialize(1280, 720, VSYNC_ENABLED, hwnd, WINDOWED_SCREEN, SCREEN_DEPTH, SCREEN_NEAR);
+	result = m_Direct3D->Initialize(1280, 720, VSYNC_DISABLED, hwnd, WINDOWED_SCREEN, SCREEN_DEPTH, SCREEN_NEAR);
 	if (!result)
 	{
 		MessageBox(hwnd, L"Could not initialize Direct3D", L"Error", MB_OK);

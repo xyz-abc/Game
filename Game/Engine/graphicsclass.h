@@ -10,6 +10,7 @@
 const bool FULL_SCREEN = true;
 const bool WINDOWED_SCREEN = false;
 const bool VSYNC_ENABLED = true;
+const bool VSYNC_DISABLED = false;
 const float SCREEN_DEPTH = 1000.0f;
 const float SCREEN_NEAR = 0.1f;
 
@@ -17,7 +18,7 @@ const float SCREEN_NEAR = 0.1f;
 class GraphicsClass
 {
 public:
-	GraphicsClass();
+	GraphicsClass(CameraClass* cc);
 	GraphicsClass(const GraphicsClass&);
 	~GraphicsClass();
 

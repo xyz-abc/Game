@@ -5,19 +5,16 @@
 #include "EngineWrapper.h"
 EngineWrapper::EngineWrapperClass::EngineWrapperClass()
 {
-	NativeClass = new test();
+	NativeEngine = new test();
 }
 void EngineWrapper::EngineWrapperClass::MainWindow()
 {
-	NativeClass->MainWindow();
+	NativeEngine->MainWindow();
 }
 
-int EngineWrapper::EngineWrapperClass::GetDirection()
+const float* EngineWrapper::EngineWrapperClass::getCameraRotation()
 {
-	return NativeClass->GetDirection();
-}
-
-void EngineWrapper::EngineWrapperClass::SetDirection(int i)
-{
-	NativeClass->SetDirection(i);
+	return NativeEngine->GetCameraRotation();
+	//return NativeEngine->GetCameraRotation();
+	
 }

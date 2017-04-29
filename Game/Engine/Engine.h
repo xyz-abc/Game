@@ -2,14 +2,18 @@
 
 #define DllExport __declspec ( dllexport )
 
+class Engine;
 class DllExport test {
 public:
 	int testFunction();
 	void MainWindow();
-	void SetDirection(int i) { direction = i; }
-	int GetDirection() { return direction; }
+	//void SetDirection(int i) { direction = i; }
+	//int GetDirection() { return direction; }
+	const float* GetCameraRotation();
 private:
+	Engine* testEngine;
 	int direction = 2;
+	
 };
 
 
@@ -39,7 +43,11 @@ public:
 	void Shutdown();
 	void Run();
 
+	
+	
 	LRESULT CALLBACK MessageHandler(HWND, UINT, WPARAM, LPARAM);
+
+	CameraClass* m_Camera;
 
 private:
 	bool Frame();
@@ -55,6 +63,7 @@ private:
 
 	InputClass* m_Input;
 	GraphicsClass* m_Graphics;
+	
 };
 
 

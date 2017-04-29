@@ -14,10 +14,9 @@ namespace EngineWrapper {
 		EngineWrapperClass();
 	
 		void MainWindow();
-		int GetDirection(); 
-		void SetDirection(int i);
+		const float* getCameraRotation();
 
 	private:
-		test* NativeClass;
+		test* NativeEngine;
 	};
 }

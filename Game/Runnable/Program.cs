@@ -44,8 +44,10 @@ namespace Runnable
 
         void Input(object state)
         {
-            Console.WriteLine(nat.GetDirection());
-            nat.SetDirection(r.Next(1, 5));
+            
+            //Console.WriteLine(nat.g);
+            //Console.WriteLine(nat.GetDirection());
+            //nat.SetDirection(r.Next(1, 5));
         }
     }
 }

@@ -4,8 +4,7 @@
 #include <directxmath.h>
 using namespace DirectX;
 
-
-class CameraClass
+class  CameraClass
 {
 public:
 	CameraClass();
