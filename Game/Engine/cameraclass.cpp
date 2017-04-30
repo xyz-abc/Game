@@ -1,5 +1,6 @@
 #include "cameraclass.h"
-
+#include <iostream>
+#define PI 3.1415
 
 CameraClass::CameraClass()
 {
@@ -33,9 +34,16 @@ void CameraClass::SetPosition(float x, float y, float z)
 
 void CameraClass::DeltaPosition(float x, float y, float z)
 {
-	m_positionX += x;
+	auto yaw = m_rotationY * 0.0174532925f;
+	yaw = -yaw;
+
+	auto xNew = (x * cos(yaw)) - (z*sin(yaw));
+	auto zNew = ( x * sin(yaw)) + (z*cos(yaw));
+
+	m_positionX += xNew;
 	m_positionY += y;
-	m_positionZ += z;
+	m_positionZ += zNew;
+
 	return;
 }
 
@@ -49,6 +57,7 @@ void CameraClass::SetRotation(float x, float y, float z)
 
 void CameraClass::DeltaRotation(float x, float y, float z)
 {
+
 	m_rotationX += x;
 	m_rotationY += y;
 	m_rotationZ += z;
