@@ -38,5 +38,10 @@ namespace Runnable
             MainWindowThread.Start();
             t.Change(500, 200);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

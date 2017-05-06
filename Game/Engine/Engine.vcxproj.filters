@@ -70,16 +70,14 @@
     <None Include="Color.ps">
       <Filter>Shader Files</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="Color.vs">
+    <None Include="Color.vs">
       <Filter>Shader Files</Filter>
-    </FxCompile>
-    <FxCompile Include="PixelShader.hlsl">
+    </None>
+    <None Include="VertexShader.hlsl">
       <Filter>Shader Files</Filter>
-    </FxCompile>
-    <FxCompile Include="VertexShader.hlsl">
+    </None>
+    <None Include="PixelShader.hlsl">
       <Filter>Shader Files</Filter>
-    </FxCompile>
+    </None>
   </ItemGroup>
 </Project>

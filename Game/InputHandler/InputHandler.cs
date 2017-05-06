@@ -19,7 +19,7 @@ namespace InputHandler
             elapsedTicks = DateTime.Now;
             eng = e;
 
-            System.Threading.Timer t = new System.Threading.Timer(nextIteration, null, 0, 20);
+            t = new System.Threading.Timer(nextIteration, null, 0, 20);
         }
 
         void nextIteration(object state)

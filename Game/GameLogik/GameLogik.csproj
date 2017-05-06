@@ -44,7 +44,16 @@
     <Compile Include="Logik.cs" />
     <Compile Include="Map\Terrain.cs" />
     <Compile Include="Map\Tile.cs" />
+    <Compile Include="Objects\Components\Renderable.cs" />
+    <Compile Include="Objects\testModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Objects\Components\Updatable.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EngineWrapper\EngineWrapper.vcxproj">
+      <Project>{defddde2-d35c-4076-abbe-c1aa0a1bff67}</Project>
+      <Name>EngineWrapper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
