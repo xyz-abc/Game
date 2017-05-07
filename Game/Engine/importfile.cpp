@@ -1,8 +1,7 @@
-using namespace std;
-
 #include "importfile.h"
 
-int importObj(char* FileName, ModelClass::Model& model) //input empty vector
+
+int importObj(char* FileName, Model& model) //input empty vector
 {
 	ifstream file(FileName);
 	if (file.is_open())
@@ -21,7 +20,7 @@ int importObj(char* FileName, ModelClass::Model& model) //input empty vector
 				in >> x >> y >> z; //now read the whitespace-separated floats
 				XMFLOAT3 position = { x,y,z };
 				XMFLOAT4 color;
-				model.vertices.push_back(ModelClass::VertexType{ position, color});
+				model.vertices.push_back(VertexType{ position, color});
 			}
 			else if(type == "f")
 			{
@@ -35,17 +34,17 @@ int importObj(char* FileName, ModelClass::Model& model) //input empty vector
 				i1 = stoi(split1);
 				i2 = stoi(split2);
 				i3 = stoi(split3);
-				model.indices.push_back(ModelClass::triangleType{ i1, i2, i3});
+				model.indices.push_back(triangleType{ i1, i2, i3});
 			}
 		}
 
 		file.close();
-		return 0;
+		return S_OK;
 	}
 
 	else 
 	{
-		return -1; //could not open file
+		return E_FAIL; //could not open file
 	}
 	
 }

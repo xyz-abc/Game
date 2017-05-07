@@ -66,16 +66,23 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 	D3D11_SUBRESOURCE_DATA vertexData, indexData;
 	HRESULT result;
 
+	//import custom model
 	Model mymodel;
-	importObj("..//Models//Cube.obj", mymodel);
+	result = importObj("../Models/Cube.obj", mymodel);
+	//result = importObj("C:/Users/Meine Oma/Source/Repos/Game/Game/Models/Cube.obj", mymodel);
+	if (FAILED(result))
+	{
+		return false;
+	}
 	
 	// Set the number of vertices in the vertex array.
-	m_vertexCount = 8;
+	m_vertexCount = mymodel.vertices.size();
 
 	// Set the number of indices in the index array.
-	m_indexCount = 36;
+	m_indexCount = mymodel.indices.size() * 3; //model has one element for every triangle
 
-	// Create the vertex array.
+	/*
+	Create the vertex array.
 	vertices = new VertexType[m_vertexCount];
 	if (!vertices)
 	{
@@ -163,8 +170,31 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 	indices[33] = 4;
 	indices[34] = 3;
 	indices[35] = 7;
+	*/
 
-					 // Set up the description of the static vertex buffer.
+	if (m_vertexCount || m_indexCount) //if obj is not correct
+	{
+		return false;
+	}
+
+	vertices = new VertexType[m_vertexCount];
+
+	for (int i = 0; i < m_vertexCount; i++) 
+	{
+		vertices[i].position = mymodel.vertices[i].position;
+		vertices[i].color = mymodel.vertices[i].color;
+	}
+
+	indices = new unsigned long[m_indexCount];
+
+	for (int i = 0; i < m_indexCount; i+3)
+	{
+		indices[i] = mymodel.indices[i].index1;
+		indices[i + 1] = mymodel.indices[i + 1].index2;
+		indices[i + 2] = mymodel.indices[i + 2].index3;
+	}
+
+	// Set up the description of the static vertex buffer.
 	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	vertexBufferDesc.ByteWidth = sizeof(VertexType) * m_vertexCount;
 	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
