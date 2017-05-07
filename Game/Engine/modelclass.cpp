@@ -66,7 +66,9 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 	D3D11_SUBRESOURCE_DATA vertexData, indexData;
 	HRESULT result;
 
-
+	Model mymodel;
+	importObj("..//Models//Cube.obj", mymodel);
+	
 	// Set the number of vertices in the vertex array.
 	m_vertexCount = 8;
 

@@ -3,17 +3,14 @@
 
 #include <d3d11.h>
 #include <directxmath.h>
+#include <vector>
+#include "importfile.h"
 using namespace DirectX;
 
 
 class ModelClass
 {
 private:
-	struct VertexType
-	{
-		XMFLOAT3 position;
-		XMFLOAT4 color;
-	};
 
 public:
 	ModelClass();
@@ -25,6 +22,25 @@ public:
 	void Render(ID3D11DeviceContext*);
 
 	int GetIndexCount();
+
+	struct VertexType
+	{
+		XMFLOAT3 position;
+		XMFLOAT4 color;
+	};
+
+	struct triangleType
+	{
+		int index1;
+		int index2;
+		int index3;
+	};
+
+	struct Model
+	{
+		vector<VertexType> vertices;
+		vector<triangleType> indices;
+	};
 
 private:
 	bool InitializeBuffers(ID3D11Device*);
