@@ -25,7 +25,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AdditionalDlls", "Additiona
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{9FA0CBB7-B441-4BE9-B712-4D0957C0914B}"
 	ProjectSection(SolutionItems) = preProject
+		Models\70m_rev_e.obj = Models\70m_rev_e.obj
 		Models\Cube.obj = Models\Cube.obj
+		Models\Cube_Hand.obj = Models\Cube_Hand.obj
 	EndProjectSection
 EndProject
 Global

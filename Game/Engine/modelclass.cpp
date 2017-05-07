@@ -68,8 +68,9 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 
 	//import custom model
 	Model mymodel;
-	result = importObj("../Models/Cube.obj", mymodel);
-	//result = importObj("C:/Users/Meine Oma/Source/Repos/Game/Game/Models/Cube.obj", mymodel);
+	result = importObj("../Models/Cube_Hand.obj", mymodel);
+	//result = importObj("../Models/70m_rev_e.obj", mymodel);
+
 	if (FAILED(result))
 	{
 		return false;
@@ -172,7 +173,7 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 	indices[35] = 7;
 	*/
 
-	if (m_vertexCount || m_indexCount) //if obj is not correct
+	if (m_vertexCount == 0 || m_indexCount == 0) //if obj is not correct
 	{
 		return false;
 	}
@@ -181,17 +182,17 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 
 	for (int i = 0; i < m_vertexCount; i++) 
 	{
-		vertices[i].position = mymodel.vertices[i].position;
+		vertices[i].position =		mymodel.vertices[i].position;
 		vertices[i].color = mymodel.vertices[i].color;
 	}
 
 	indices = new unsigned long[m_indexCount];
 
-	for (int i = 0; i < m_indexCount; i+3)
+	for (int i = 0; i < mymodel.indices.size(); i++)
 	{
-		indices[i] = mymodel.indices[i].index1;
-		indices[i + 1] = mymodel.indices[i + 1].index2;
-		indices[i + 2] = mymodel.indices[i + 2].index3;
+		indices[i*3] =		mymodel.indices[i].index1;
+		indices[i*3 + 1] =	mymodel.indices[i].index2;
+		indices[i*3 + 2] =	mymodel.indices[i].index3;
 	}
 
 	// Set up the description of the static vertex buffer.

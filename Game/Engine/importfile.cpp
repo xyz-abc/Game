@@ -1,11 +1,14 @@
 #include "importfile.h"
-
+#include <time.h> 
 
 int importObj(char* FileName, Model& model) //input empty vector
 {
 	ifstream file(FileName);
 	if (file.is_open())
 	{
+		float xx = 0.0f;
+		float yy = 0.0f;
+		float zz = 0.0f;
 		for (string line;  getline(file, line); ) //read stream line by line
 		{
 			istringstream in(line); //make a stream for the line itself
@@ -19,7 +22,12 @@ int importObj(char* FileName, Model& model) //input empty vector
 				float x, y, z;
 				in >> x >> y >> z; //now read the whitespace-separated floats
 				XMFLOAT3 position = { x,y,z };
-				XMFLOAT4 color;
+				xx = xx + 0.1f;
+				yy = yy + 0.1f;
+				zz = zz + 0.1f;
+				XMFLOAT4 color = {xx, yy, zz, 1.0f};
+				//XMFLOAT4 color = { (x + 1.0f)/2.0f , (y + 1.0f) / 2.0f, (z + 1.0f) / 2.0f, 1.0f };
+				//XMFLOAT4 color = { static_cast <float> (rand()) / static_cast <float> (RAND_MAX) ,static_cast <float> (rand()) / static_cast <float> (RAND_MAX) ,static_cast <float> (rand()) / static_cast <float> (RAND_MAX) ,static_cast <float> (rand()) / static_cast <float> (RAND_MAX) };
 				model.vertices.push_back(VertexType{ position, color});
 			}
 			else if(type == "f")
