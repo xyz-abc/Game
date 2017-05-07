@@ -23,6 +23,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputHandler", "InputHandle
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AdditionalDlls", "AdditionalDlls", "{C835D695-A9E7-4A22-ADF5-7A8BB07040C5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{9FA0CBB7-B441-4BE9-B712-4D0957C0914B}"
+	ProjectSection(SolutionItems) = preProject
+		Cube.obj = Cube.obj
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

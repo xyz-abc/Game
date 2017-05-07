@@ -37,7 +37,7 @@ namespace Runnable
 
         public void start()
         {
-            Application.Run(new MainForm(MainWindowThread, t));
+            Application.Run(new MainForm(MainWindowThread, t, GameLogik));
         }
 
         void Input(object state)
