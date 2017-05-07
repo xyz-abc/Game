@@ -172,7 +172,7 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 	indices[35] = 7;
 	*/
 
-	if (m_vertexCount || m_indexCount) //if obj is not correct
+	if (!(m_vertexCount || m_indexCount)) //if obj is not correct
 	{
 		return false;
 	}
