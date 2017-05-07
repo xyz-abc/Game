@@ -18,7 +18,7 @@ namespace GameLogik
         public void AddNewObject(Updatable o)
         {
             allObjects.Add(o);
-            eng.AddObject(o.)
+            //eng.AddObject(o.)
         }
 
 
