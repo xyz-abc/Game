@@ -39,9 +39,9 @@ int importObj(char* FileName, Model& model) //input empty vector
 				split1 = s1.substr(0, s1.find("/"));
 				split2 = s2.substr(0, s2.find("/"));
 				split3 = s3.substr(0, s3.find("/"));
-				i1 = stoi(split1);
-				i2 = stoi(split2);
-				i3 = stoi(split3);
+				i1 = stoi(split1) - 1; //indices start at 1 and start need to be mapped to 0
+				i2 = stoi(split2) - 1;
+				i3 = stoi(split3) - 1;
 				model.indices.push_back(triangleType{ i1, i2, i3});
 			}
 		}
